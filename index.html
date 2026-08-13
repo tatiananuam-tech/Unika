@@ -12,13 +12,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f7f5f0',
-                            100: '#ede8dc',
-                            500: '#b8a38b',
-                            600: '#9d8469',
-                            700: '#755f47',
-                            sage: '#a3ab9e',
-                            sand: '#d4c5b9'
+                            bege: '#E8E1D5', // Bege Suave
+                            salvia: '#A3AB9E', // Verde Sálvia
+                            cinza: '#D8D4D0', // Cinza Aconchego
+                            areia: '#C8B9A6', // Areia Quente
+                            dark: '#524B45'
                         }
                     }
                 }
@@ -33,7 +31,7 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 antialiased selection:bg-brand-100 selection:text-brand-700">
+<body class="bg-[#FAF8F5] text-stone-800 antialiased selection:bg-[#E8E1D5] selection:text-stone-900">
 
     <!-- Notificación Toast -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-stone-900 text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
@@ -45,7 +43,7 @@
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-stone-800 text-brand-sand flex items-center justify-center font-bold text-lg shadow-inner">
+                <div class="w-10 h-10 rounded-full bg-brand-salvia text-white flex items-center justify-center font-bold text-lg shadow-inner">
                     Ú
                 </div>
                 <div>
@@ -61,10 +59,10 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <button onclick="openAdminLoginModal()" class="text-stone-600 hover:text-stone-900 px-3 py-2 rounded-xl text-xs font-semibold bg-stone-100 transition flex items-center gap-1.5" title="Dashboard Karina">
-                    <i class="fa-solid fa-lock text-brand-600"></i> Acceso Karina
+                <button onclick="openAdminLoginModal()" class="text-stone-600 hover:text-stone-900 px-3 py-2 rounded-xl text-xs font-semibold bg-[#E8E1D5]/40 transition flex items-center gap-1.5" title="Dashboard Karina">
+                    <i class="fa-solid fa-lock text-brand-salvia"></i> Acceso Karina
                 </button>
-                <button onclick="openBookingModal()" class="bg-stone-800 hover:bg-stone-900 text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-lg transition transform active:scale-95 flex items-center gap-2">
+                <button onclick="openBookingModal()" class="bg-brand-salvia hover:bg-[#8D9688] text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-lg transition transform active:scale-95 flex items-center gap-2">
                     <i class="fa-regular fa-calendar-days"></i>
                     <span>Agendar Cita</span>
                 </button>
@@ -73,24 +71,24 @@
     </header>
 
     <!-- Sección Hero -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-[#f7f5f0] to-stone-50 py-20 lg:py-28">
+    <section class="relative overflow-hidden bg-gradient-to-b from-[#E8E1D5]/30 to-[#FAF8F5] py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 bg-[#a3ab9e]/20 text-stone-800 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-sparkles text-brand-600"></i> Cuidado avanzado para tu piel
+                    <div class="inline-flex items-center gap-2 bg-[#A3AB9E]/20 text-stone-800 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-sparkles text-brand-salvia"></i> Cuidado avanzado para tu piel
                     </div>
                     <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-tight">
-                        Realza tu belleza única con <span class="text-brand-600">respaldo médico</span>
+                        Realza tu belleza única con <span class="text-brand-salvia">respaldo médico</span>
                     </h2>
                     <p class="text-lg text-stone-600 max-w-xl mx-auto lg:mx-0">
-                        Agenda tu turno online. Recuerda que se requiere una seña de $600 para validar tu espacio y las cancelaciones deben realizarse con más de 24 hs de anticipación.
+                        Agenda tu turno online. Se requiere una seña de $600 para validar tu espacio (cancelaciones con más de 24 hs de anticipación).
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-stone-800 hover:bg-stone-900 text-white px-8 py-4 rounded-xl font-semibold shadow-xl transition transform active:scale-95 text-center">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-brand-salvia hover:bg-[#8D9688] text-white px-8 py-4 rounded-xl font-semibold shadow-xl transition transform active:scale-95 text-center">
                             Reservar Turno Ahora
                         </button>
-                        <a href="#servicios" class="w-full sm:w-auto bg-white border border-stone-300 hover:bg-stone-50 text-stone-800 px-8 py-4 rounded-xl font-semibold transition text-center">
+                        <a href="#servicios" class="w-full sm:w-auto bg-white border border-[#C8B9A6] hover:bg-stone-50 text-stone-800 px-8 py-4 rounded-xl font-semibold transition text-center">
                             Ver Tratamientos
                         </a>
                     </div>
@@ -99,7 +97,7 @@
                     <div class="w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-stone-200 relative border-4 border-white">
                         <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" alt="Cosmetología Profesional" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                            <span class="text-xs uppercase tracking-widest text-brand-sand font-semibold">Cosmetóloga Médica</span>
+                            <span class="text-xs uppercase tracking-widest text-[#E8E1D5] font-semibold">Cosmetóloga Médica</span>
                             <span class="text-xl font-bold">Karina - Únika</span>
                         </div>
                     </div>
@@ -112,7 +110,7 @@
     <section id="servicios" class="py-20 bg-white border-y border-stone-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Tratamientos Exclusivos</span>
+                <span class="text-brand-salvia font-semibold text-sm uppercase tracking-wider">Tratamientos Exclusivos</span>
                 <h3 class="text-3xl font-bold text-stone-900 mt-2">Nuestros Servicios y Precios</h3>
                 <p class="text-stone-600 mt-2">Selecciona el tratamiento ideal para tu piel con disponibilidad en tiempo real.</p>
             </div>
@@ -126,7 +124,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-8 h-8 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-sm">
+                    <div class="w-8 h-8 rounded-full bg-brand-salvia text-white flex items-center justify-center font-bold text-sm">
                         Ú
                     </div>
                     <span class="font-bold text-lg text-white">Únika Cosmetología</span>
@@ -140,9 +138,9 @@
             </div>
             <div>
                 <h4 class="font-semibold text-white mb-4">Contacto</h4>
-                <p class="text-sm text-stone-400 mb-2"><i class="fa-solid fa-location-dot mr-2 text-brand-500"></i> Consultorio Estético Profesional</p>
-                <p class="text-sm text-stone-400 mb-2"><i class="fa-brands fa-whatsapp mr-2 text-brand-500"></i> +598 99 689 906</p>
-                <p class="text-sm text-stone-400"><i class="fa-solid fa-envelope mr-2 text-brand-500"></i> Karhel@hotmail.com</p>
+                <p class="text-sm text-stone-400 mb-2"><i class="fa-solid fa-location-dot mr-2 text-brand-salvia"></i> Consultorio Estético Profesional</p>
+                <p class="text-sm text-stone-400 mb-2"><i class="fa-brands fa-whatsapp mr-2 text-brand-salvia"></i> +598 99 689 906</p>
+                <p class="text-sm text-stone-400"><i class="fa-solid fa-envelope mr-2 text-brand-salvia"></i> Karhel@hotmail.com</p>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 text-center text-xs text-stone-500">
@@ -158,75 +156,77 @@
             </button>
 
             <div class="mb-6">
-                <span class="text-brand-600 font-semibold text-xs uppercase tracking-wider">Agenda Online</span>
+                <span class="text-brand-salvia font-semibold text-xs uppercase tracking-wider">Agenda Online</span>
                 <h3 class="text-2xl font-bold text-stone-900 mt-1">Reservar Turno con Karina</h3>
                 <p class="text-sm text-stone-500">Completa tus datos para apartar tu horario.</p>
             </div>
 
             <!-- Aviso Importante de Seña y Cancelación -->
-            <div class="bg-[#f7f5f0] border-l-4 border-brand-600 p-4 rounded-2xl mb-6 text-xs text-stone-700 space-y-1">
-                <p class="font-bold text-stone-900"><i class="fa-solid fa-circle-info text-brand-600 mr-1"></i> Información importante:</p>
-                <p>• Es necesario depositar una <strong>seña de $600</strong> a la cuenta de Karina para confirmar la reserva (los datos aparecerán al finalizar).</p>
+            <div class="bg-[#E8E1D5]/30 border-l-4 border-brand-salvia p-4 rounded-2xl mb-6 text-xs text-stone-700 space-y-1">
+                <p class="font-bold text-stone-900"><i class="fa-solid fa-circle-info text-brand-salvia mr-1"></i> Información importante:</p>
+                <p>• Es necesario depositar una <strong>seña de $600</strong> a la cuenta de Karina para confirmar la reserva.</p>
                 <p>• Las cancelaciones deben realizarse con <strong>más de 24 horas de anticipación</strong>; de lo contrario, la seña se pierde.</p>
             </div>
 
             <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Tratamiento</label>
-                    <select id="service-select" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900"></select>
+                    <select id="service-select" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia"></select>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Fecha</label>
-                        <input type="date" id="booking-date" onchange="updateAvailableSlots()" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                        <input type="date" id="booking-date" onchange="updateAvailableSlots()" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Horarios Disponibles</label>
-                        <select id="booking-time" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900"></select>
+                        <select id="booking-time" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia"></select>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Nombre y Apellido</label>
-                    <input type="text" id="client-name" required placeholder="Ej. Camila Silva" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                    <input type="text" id="client-name" required placeholder="Ej. Camila Silva" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Tu WhatsApp Personal</label>
-                    <input type="tel" id="client-phone" required placeholder="Ej. 099 876 543" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                    <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Tu Teléfono / WhatsApp</label>
+                    <input type="tel" id="client-phone" required placeholder="Ej. 099 876 543" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Correo Electrónico (para respaldo automático)</label>
-                    <input type="email" id="client-email" required placeholder="tuemail@gmail.com" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                    <input type="email" id="client-email" required placeholder="tuemail@gmail.com" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
                 </div>
 
                 <div class="pt-2">
                     <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3.5 rounded-xl shadow-lg transition transform active:scale-95 text-center flex items-center justify-center gap-2">
-                        <span>Registrar Cita y Enviar Datos</span>
+                        <span>Registrar Cita</span>
                     </button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal de Éxito y Opcional de WhatsApp -->
+    <!-- Modal de Éxito: Opciones WhatsApp o Solo Email -->
     <div id="success-whatsapp-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 text-center space-y-4">
-            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+            <div class="w-16 h-16 bg-[#A3AB9E]/20 text-brand-salvia rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
                 <i class="fa-solid fa-check"></i>
             </div>
             <h3 class="text-2xl font-bold text-stone-900">¡Turno Registrado con Éxito!</h3>
             <p class="text-sm text-stone-600">Hemos enviado un respaldo por correo electrónico a Karina (<strong>Karhel@hotmail.com</strong>). Recuerda abonar la <strong>seña de $600</strong> a su cuenta para confirmar definitivamente.</p>
             
-            <div class="pt-2 space-y-2">
-                <a id="whatsapp-direct-link" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+            <div class="pt-2 space-y-3">
+                <p class="text-xs text-stone-500 font-medium">¿Cómo deseas notificar a Karina?</p>
+                <a id="whatsapp-direct-link" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Enviar también por WhatsApp a Kari</span>
+                    <span>Enviar por WhatsApp a Kari</span>
                 </a>
-                <button onclick="closeSuccessModal()" class="w-full bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium py-3 rounded-xl transition text-xs">
-                    Cerrar ventana
+                <button onclick="confirmByEmailOnly()" class="w-full bg-[#E8E1D5] hover:bg-[#D8CEBE] text-stone-800 font-semibold py-3 rounded-xl transition text-xs flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>No tengo WhatsApp (Confirmar solo por Correo)</span>
                 </button>
             </div>
         </div>
@@ -239,12 +239,12 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-stone-900 text-white rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">Ú</div>
+                <div class="w-12 h-12 bg-brand-salvia text-white rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">Ú</div>
                 <h3 class="text-xl font-bold text-stone-900">Acceso Exclusivo</h3>
                 <p class="text-xs text-stone-500 mt-1">Ingresa tu PIN de seguridad para abrir tu panel</p>
             </div>
             <form onsubmit="handleAdminLogin(event)" class="space-y-4">
-                <input type="password" id="admin-pin" required placeholder="PIN (ej. 1234)" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-center text-lg tracking-widest focus:outline-none focus:ring-2 focus:ring-stone-900">
+                <input type="password" id="admin-pin" required placeholder="PIN (ej. 1234)" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-center text-lg tracking-widest focus:outline-none focus:ring-2 focus:ring-brand-salvia">
                 <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3 rounded-xl transition">Ingresar al Dashboard</button>
             </form>
         </div>
@@ -259,7 +259,7 @@
 
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b border-stone-200 pb-6">
                 <div>
-                    <span class="text-brand-600 font-semibold text-xs uppercase tracking-wider">Panel Únika Admin</span>
+                    <span class="text-brand-salvia font-semibold text-xs uppercase tracking-wider">Panel Únika Admin</span>
                     <h3 class="text-2xl font-bold text-stone-900 mt-1">¡Hola, Karina! 👋</h3>
                     <p class="text-sm text-stone-500">Respaldo activo a <strong>Karhel@hotmail.com</strong></p>
                 </div>
@@ -317,7 +317,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="text-center mb-6">
-                <span class="text-brand-600 font-semibold text-xs uppercase tracking-wider">Gestión de Turno</span>
+                <span class="text-brand-salvia font-semibold text-xs uppercase tracking-wider">Gestión de Turno</span>
                 <h3 class="text-2xl font-bold text-stone-900 mt-1">Detalles de tu Cita Únika</h3>
             </div>
             <div id="manage-booking-details" class="bg-stone-50 p-5 rounded-2xl border border-stone-200 space-y-3 mb-6 text-sm"></div>
@@ -375,13 +375,13 @@
                             <div>
                                 <div class="flex justify-between items-center mb-2">
                                     <h4 class="font-bold text-lg text-stone-900">${service.name}</h4>
-                                    <span class="text-brand-600 font-bold">$${service.price}</span>
+                                    <span class="text-brand-salvia font-bold">$${service.price}</span>
                                 </div>
                                 <p class="text-sm text-stone-600 mb-4">${service.description}</p>
                             </div>
                             <div class="flex items-center justify-between pt-4 border-t border-stone-200">
                                 <span class="text-xs text-stone-500 font-medium"><i class="fa-regular fa-clock mr-1"></i> ${service.duration}</span>
-                                <button onclick="openBookingWithService(${service.id})" class="bg-stone-100 hover:bg-stone-900 hover:text-white text-stone-800 font-semibold px-4 py-2 rounded-xl text-xs transition">
+                                <button onclick="openBookingWithService(${service.id})" class="bg-[#E8E1D5] hover:bg-brand-salvia hover:text-white text-stone-800 font-semibold px-4 py-2 rounded-xl text-xs transition">
                                     Reservar Cita
                                 </button>
                             </div>
@@ -531,7 +531,7 @@
                         <div class="py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                             <div>
                                 <span class="font-bold text-stone-900">${app.clientName}</span> (${app.phone})
-                                <div class="text-xs text-stone-500"><span class="font-semibold text-brand-600">${app.service}</span> — Fecha: ${app.date} a las ${app.time} hs</div>
+                                <div class="text-xs text-stone-500"><span class="font-semibold text-brand-salvia">${app.service}</span> — Fecha: ${app.date} a las ${app.time} hs</div>
                                 <div class="text-[11px] text-stone-400">Código: <span class="font-mono bg-stone-100 px-1.5 py-0.5 rounded text-stone-700">${app.code}</span> | Email: ${app.email}</div>
                             </div>
                             <div class="flex items-center gap-2">
@@ -578,7 +578,7 @@
                         <span class="text-sm font-bold text-stone-900">${s.name}</span>
                         <div class="flex items-center gap-2">
                             <span class="text-xs text-stone-500">$</span>
-                            <input type="number" id="dash-price-${s.id}" value="${s.price}" class="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 text-sm font-semibold text-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900">
+                            <input type="number" id="dash-price-${s.id}" value="${s.price}" class="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 text-sm font-semibold text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand-salvia">
                             <button onclick="updateServicePrice(${s.id})" class="bg-stone-900 hover:bg-stone-800 text-white text-xs px-4 py-2 rounded-xl transition font-medium">Guardar</button>
                         </div>
                     </div>
@@ -675,6 +675,13 @@
             showToast("¡Turno registrado y respaldo enviado a Karhel@hotmail.com!");
         }
 
+        function confirmByEmailOnly() {
+            const successModal = document.getElementById('success-whatsapp-modal');
+            successModal.classList.add('opacity-0');
+            setTimeout(() => successModal.classList.add('hidden'), 300);
+            showToast("¡Reserva confirmada mediante correo electrónico a Karina!");
+        }
+
         function closeSuccessModal() {
             const modal = document.getElementById('success-whatsapp-modal');
             modal.classList.add('opacity-0');
@@ -692,7 +699,7 @@
                     detailsEl.innerHTML = `
                         <div><span class="text-stone-500">Código:</span> <strong class="text-stone-900 font-mono">${app.code}</strong></div>
                         <div><span class="text-stone-500">Paciente:</span> <strong class="text-stone-900">${app.clientName}</strong></div>
-                        <div><span class="text-stone-500">Tratamiento:</span> <strong class="text-brand-600">${app.service}</strong></div>
+                        <div><span class="text-stone-500">Tratamiento:</span> <strong class="text-brand-salvia">${app.service}</strong></div>
                         <div><span class="text-stone-500">Fecha y Hora:</span> <strong class="text-stone-900">${app.date} a las ${app.time} hs</strong></div>
                     `;
                     const manageModal = document.getElementById('manage-booking-modal');
