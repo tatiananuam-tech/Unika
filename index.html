@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Únika - Cosmetología Médica y Estética</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fcf8f7',
+                            100: '#f5eae7',
+                            500: '#d4a373',
+                            600: '#bc6c25',
+                            700: '#9b5de5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-brand-100 selection:text-brand-700">
+
+    <!-- Notificación Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-stone-900 text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
+        <i id="toast-icon" class="text-green-400 fa-solid fa-circle-check text-lg"></i>
+        <span id="toast-message" class="text-sm font-medium">¡Operación exitosa!</span>
+    </div>
+
+    <!-- Barra de Navegación -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-stone-900 text-white flex items-center justify-center font-bold text-lg shadow-inner">
+                    Ú
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-stone-900">Únika Cosmetología</h1>
+                    <p class="text-xs text-stone-500">Cosmiatría y Estética Médica</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
+                <a href="#servicios" class="hover:text-stone-900 transition">Tratamientos</a>
+                <a href="#nosotros" class="hover:text-stone-900 transition">Sobre Mí</a>
+                <a href="#contacto" class="hover:text-stone-900 transition">Contacto</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="openAdminLoginModal()" class="text-stone-600 hover:text-stone-900 px-3 py-2 rounded-xl text-xs font-semibold bg-stone-100 transition flex items-center gap-1.5" title="Dashboard Karina">
+                    <i class="fa-solid fa-lock text-brand-600"></i> Acceso Karina
+                </button>
+                <button onclick="openBookingModal()" class="bg-stone-900 hover:bg-stone-800 text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-lg transition transform active:scale-95 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>Agendar Cita</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-stone-100 to-stone-50 py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-stone-200 text-stone-800 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-sparkles text-brand-600"></i> Cuidado avanzado para tu piel
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-tight">
+                        Realza tu belleza única con <span class="text-brand-600">respaldo médico</span>
+                    </h2>
+                    <p class="text-lg text-stone-600 max-w-xl mx-auto lg:mx-0">
+                        Agenda tu turno online de forma inmediata. Conectado directamente al WhatsApp Business de Karina (+598 99 689 906).
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-stone-900 hover:bg-stone-800 text-white px-8 py-4 rounded-xl font-semibold shadow-xl transition transform active:scale-95 text-center">
+                            Reservar Turno Ahora
+                        </button>
+                        <a href="#servicios" class="w-full sm:w-auto bg-white border border-stone-300 hover:bg-stone-50 text-stone-800 px-8 py-4 rounded-xl font-semibold transition text-center">
+                            Ver Tratamientos
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-stone-200 relative border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" alt="Cosmetología Profesional" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-xs uppercase tracking-widest text-brand-300 font-semibold">Cosmetóloga Médica</span>
+                            <span class="text-xl font-bold">Karina - Únika</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Servicios -->
+    <section id="servicios" class="py-20 bg-white border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Tratamientos Exclusivos</span>
+                <h3 class="text-3xl font-bold text-stone-900 mt-2">Nuestros Servicios y Precios</h3>
+                <p class="text-stone-600 mt-2">Selecciona el tratamiento ideal para tu piel con disponibilidad en tiempo real.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid"></div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer id="contacto" class="bg-stone-900 text-stone-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-sm">
+                        Ú
+                    </div>
+                    <span class="font-bold text-lg text-white">Únika Cosmetología</span>
+                </div>
+                <p class="text-sm text-stone-400">Salud estética con enfoque médico y profesional.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-4">Horarios</h4>
+                <p class="text-sm text-stone-400 mb-2">Lunes a Viernes: 09:00 - 19:00 hs</p>
+                <p class="text-sm text-stone-400">Sábados: 09:00 - 14:00 hs</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-4">Contacto</h4>
+                <p class="text-sm text-stone-400 mb-2"><i class="fa-solid fa-location-dot mr-2 text-brand-500"></i> Consultorio Estético Profesional</p>
+                <p class="text-sm text-stone-400 mb-2"><i class="fa-brands fa-whatsapp mr-2 text-brand-500"></i> +598 99 689 906</p>
+                <p class="text-sm text-stone-400"><i class="fa-solid fa-camera mr-2 text-brand-500"></i> @unika_cosmetologia</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 text-center text-xs text-stone-500">
+            &copy; 2026 Únika Cosmetología Médica. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Modal de Reserva de Turnos -->
+    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-brand-600 font-semibold text-xs uppercase tracking-wider">Agenda Online</span>
+                <h3 class="text-2xl font-bold text-stone-900 mt-1">Reservar Turno con Karina</h3>
+                <p class="text-sm text-stone-500">Selecciona fecha y hora. Los espacios ocupados se bloquean automáticamente.</p>
+            </div>
+
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Tratamiento</label>
+                    <select id="service-select" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900"></select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Fecha</label>
+                        <input type="date" id="booking-date" onchange="updateAvailableSlots()" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Horarios Disponibles</label>
+                        <select id="booking-time" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900"></select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Nombre y Apellido</label>
+                    <input type="text" id="client-name" required placeholder="Ej. Camila Silva" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Tu WhatsApp Personal</label>
+                    <input type="tel" id="client-phone" required placeholder="Ej. 099 876 543" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Correo Electrónico</label>
+                    <input type="email" id="client-email" required placeholder="tuemail@gmail.com" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-xl shadow-lg transition transform active:scale-95 text-center flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Confirmar y Enviar a Karina</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Acceso de Karina (PIN) -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeAdminLoginModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-700 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-stone-900 text-white rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">Ú</div>
+                <h3 class="text-xl font-bold text-stone-900">Acceso Exclusivo</h3>
+                <p class="text-xs text-stone-500 mt-1">Ingresa tu PIN de seguridad para abrir tu panel</p>
+            </div>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <input type="password" id="admin-pin" required placeholder="PIN (ej. 1234)" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-center text-lg tracking-widest focus:outline-none focus:ring-2 focus:ring-stone-900">
+                <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3 rounded-xl transition">Ingresar al Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Completo de Karina -->
+    <div id="admin-dashboard-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-5xl w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[92vh] overflow-y-auto">
+            <button onclick="closeAdminDashboard()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b border-stone-200 pb-6">
+                <div>
+                    <span class="text-brand-600 font-semibold text-xs uppercase tracking-wider">Panel Únika Admin</span>
+                    <h3 class="text-2xl font-bold text-stone-900 mt-1">¡Hola, Karina! 👋</h3>
+                    <p class="text-sm text-stone-500">Resumen general de tu consultorio en tiempo real.</p>
+                </div>
+                <div>
+                    <button onclick="exportAppointments()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 px-4 py-2 rounded-xl text-xs font-semibold transition">
+                        <i class="fa-solid fa-download mr-1"></i> Exportar Citas (CSV)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Métricas -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <div class="bg-stone-100 p-5 rounded-2xl border border-stone-200">
+                    <span class="text-xs font-semibold text-stone-600 uppercase tracking-wider">Citas Agendadas</span>
+                    <h4 class="text-3xl font-extrabold text-stone-900 mt-2" id="stat-total-appointments">0</h4>
+                </div>
+                <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100">
+                    <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Clientes Frecuentes</span>
+                    <h4 class="text-3xl font-extrabold text-stone-900 mt-2" id="stat-frequent-clients">0</h4>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-100">
+                    <span class="text-xs font-semibold text-amber-600 uppercase tracking-wider">Tratamiento Estrella</span>
+                    <h4 class="text-lg font-bold text-stone-900 mt-2 truncate" id="stat-top-service">-</h4>
+                </div>
+            </div>
+
+            <!-- Pestañas del Dashboard -->
+            <div class="flex gap-4 border-b border-stone-200 mb-6 text-sm font-semibold">
+                <button onclick="switchDashboardTab('agenda')" id="tab-btn-agenda" class="pb-3 border-b-2 border-stone-900 text-stone-900 transition">Agenda de Citas</button>
+                <button onclick="switchDashboardTab('clientes')" id="tab-btn-clientes" class="pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition">Clientes Frecuentes</button>
+                <button onclick="switchDashboardTab('precios')" id="tab-btn-precios" class="pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition">Gestión de Precios</button>
+            </div>
+
+            <!-- Pestaña 1: Agenda -->
+            <div id="tab-content-agenda" class="space-y-4">
+                <div id="dashboard-appointments-list" class="bg-stone-50 rounded-2xl p-4 border border-stone-200 divide-y divide-stone-200 max-h-72 overflow-y-auto"></div>
+            </div>
+
+            <!-- Pestaña 2: Clientes Frecuentes -->
+            <div id="tab-content-clientes" class="space-y-4 hidden">
+                <div id="dashboard-clients-list" class="bg-stone-50 rounded-2xl p-4 border border-stone-200 divide-y divide-stone-200 max-h-72 overflow-y-auto"></div>
+            </div>
+
+            <!-- Pestaña 3: Precios -->
+            <div id="tab-content-precios" class="space-y-4 hidden">
+                <div id="dashboard-services-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Gestión/Cancelación para Pacientes (Enlace Único) -->
+    <div id="manage-booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeManageModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <span class="text-brand-600 font-semibold text-xs uppercase tracking-wider">Gestión de Turno</span>
+                <h3 class="text-2xl font-bold text-stone-900 mt-1">Detalles de tu Cita Únika</h3>
+            </div>
+            <div id="manage-booking-details" class="bg-stone-50 p-5 rounded-2xl border border-stone-200 space-y-3 mb-6 text-sm"></div>
+            <div class="space-y-3">
+                <button onclick="cancelClientAppointment()" class="w-full bg-red-50 hover:bg-red-100 text-red-700 font-semibold py-3 rounded-xl transition text-center">
+                    Cancelar esta Reserva
+                </button>
+                <button onclick="closeManageModal()" class="w-full bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium py-2.5 rounded-xl transition text-center text-xs">
+                    Cerrar ventana
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de Funcionamiento -->
+    <script>
+        const KARINA_WHATSAPP = "59899689906";
+        const ADMIN_PIN = "1234";
+
+        let services = [
+            { id: 1, name: "Limpieza Facial Profunda con Dermopurificación", duration: "60 min", price: 1800, description: "Exfoliación, extracción de impurezas y alta frecuencia.", image: "https://images.unsplash.com/photo-1512290900722-9a70f8a85f39?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Peeling Químico Médico", duration: "45 min", price: 2500, description: "Renovación celular avanzada para atenuar manchas y marcas.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Microneedling (Dermapen con Vitamina C)", duration: "75 min", price: 3200, description: "Inducción de colágeno y elastina para firmeza y luminosidad.", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, name: "Hidratación Profunda con Ácido Hialurónico", duration: "50 min", price: 2100, description: "Infusión de principios activos para devolver vitalidad.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" },
+            { id: 5, name: "Tratamiento Anti-Acné Especializado", duration: "60 min", price: 2300, description: "Control de sebo, desinflamación y prevención de brotes.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" },
+            { id: 6, name: "Radiofrecuencia Reafirmante Facial", duration: "60 min", price: 2800, description: "Efecto lifting sin cirugía que estimula la tensión tisular.", image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        let appointments = JSON.parse(localStorage.getItem('unika_appointments')) || [
+            { id: 101, service: "Limpieza Facial Profunda con Dermopurificación", date: "2026-06-15", time: "10:30", clientName: "Lucía Fernández", phone: "099111222", email: "lucia@email.com", token: "tok_101" }
+        ];
+
+        let currentManagingId = null;
+        const allPossibleSlots = ["09:00", "10:30", "12:00", "14:00", "15:30", "17:00"];
+
+        function renderServices() {
+            const grid = document.getElementById('services-grid');
+            const select = document.getElementById('service-select');
+            grid.innerHTML = '';
+            select.innerHTML = '';
+
+            services.forEach(service => {
+                grid.innerHTML += `
+                    <div class="bg-stone-50 rounded-3xl overflow-hidden border border-stone-200 hover:shadow-xl transition flex flex-col justify-between group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="${service.image}" alt="${service.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-bold text-lg text-stone-900">${service.name}</h4>
+                                    <span class="text-brand-600 font-bold">$${service.price}</span>
+                                </div>
+                                <p class="text-sm text-stone-600 mb-4">${service.description}</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-stone-200">
+                                <span class="text-xs text-stone-500 font-medium"><i class="fa-regular fa-clock mr-1"></i> ${service.duration}</span>
+                                <button onclick="openBookingWithService(${service.id})" class="bg-stone-100 hover:bg-stone-900 hover:text-white text-stone-800 font-semibold px-4 py-2 rounded-xl text-xs transition">
+                                    Reservar Cita
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                select.innerHTML += `<option value="${service.name}">${service.name} ($${service.price})</option>`;
+            });
+        }
+
+        function updateAvailableSlots() {
+            const dateInput = document.getElementById('booking-date').value;
+            const timeSelect = document.getElementById('booking-time');
+            timeSelect.innerHTML = '';
+
+            const bookedTimesForDate = appointments
+                .filter(app => app.date === dateInput)
+                .map(app => app.time);
+
+            const availableSlots = allPossibleSlots.filter(slot => !bookedTimesForDate.includes(slot));
+
+            if (availableSlots.length === 0) {
+                timeSelect.innerHTML = `<option value="" disabled selected>No hay horarios disponibles para esta fecha</option>`;
+            } else {
+                availableSlots.forEach(slot => {
+                    timeSelect.innerHTML += `<option value="${slot}">${slot} hs</option>`;
+                });
+            }
+        }
+
+        function openBookingModal(serviceId = null) {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+
+            if (serviceId) {
+                const s = services.find(item => item.id === serviceId);
+                if (s) document.getElementById('service-select').value = s.name;
+            }
+
+            const today = new Date().toISOString().split('T')[0];
+            const dateField = document.getElementById('booking-date');
+            dateField.min = today;
+            dateField.value = today;
+            updateAvailableSlots();
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function openBookingWithService(id) {
+            openBookingModal(id);
+        }
+
+        function openAdminLoginModal() {
+            const modal = document.getElementById('admin-login-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeAdminLoginModal() {
+            const modal = document.getElementById('admin-login-modal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const pin = document.getElementById('admin-pin').value;
+            if (pin === ADMIN_PIN) {
+                closeAdminLoginModal();
+                document.getElementById('admin-pin').value = '';
+                openAdminDashboard();
+            } else {
+                showToast("PIN incorrecto. Inténtalo de nuevo.", true);
+            }
+        }
+
+        function openAdminDashboard() {
+            renderDashboardData();
+            const modal = document.getElementById('admin-dashboard-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeAdminDashboard() {
+            const modal = document.getElementById('admin-dashboard-modal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function switchDashboardTab(tab) {
+            ['agenda', 'clientes', 'precios'].forEach(t => {
+                document.getElementById(`tab-content-${t}`).classList.add('hidden');
+                document.getElementById(`tab-btn-${t}`).className = "pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition";
+            });
+            document.getElementById(`tab-content-${tab}`).classList.remove('hidden');
+            document.getElementById(`tab-btn-${tab}`).className = "pb-3 border-b-2 border-stone-900 text-stone-900 transition";
+        }
+
+        function renderDashboardData() {
+            document.getElementById('stat-total-appointments').textContent = appointments.length;
+
+            const clientCounts = {};
+            appointments.forEach(app => {
+                clientCounts[app.clientName] = (clientCounts[app.clientName] || 0) + 1;
+            });
+            const frequentCount = Object.values(clientCounts).filter(count => count > 1).length;
+            document.getElementById('stat-frequent-clients').textContent = frequentCount;
+
+            const serviceCounts = {};
+            appointments.forEach(app => {
+                serviceCounts[app.service] = (serviceCounts[app.service] || 0) + 1;
+            });
+            let topService = "-";
+            let maxCount = 0;
+            for (const [srv, cnt] of Object.entries(serviceCounts)) {
+                if (cnt > maxCount) {
+                    maxCount = cnt;
+                    topService = srv;
+                }
+            }
+            document.getElementById('stat-top-service').textContent = topService;
+
+            const appList = document.getElementById('dashboard-appointments-list');
+            appList.innerHTML = '';
+            if (appointments.length === 0) {
+                appList.innerHTML = `<p class="text-stone-500 py-3 text-center text-sm">No hay turnos agendados.</p>`;
+            } else {
+                appointments.forEach(app => {
+                    appList.innerHTML += `
+                        <div class="py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                            <div>
+                                <span class="font-bold text-stone-900">${app.clientName}</span> (${app.phone})
+                                <div class="text-xs text-stone-500"><span class="font-semibold text-brand-600">${app.service}</span> — Fecha: ${app.date} a las ${app.time} hs</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Confirmado</span>
+                                <button onclick="adminCancelAppointment('${app.token}')" class="text-red-500 hover:text-red-700 text-xs p-1" title="Cancelar Turno"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            const clientList = document.getElementById('dashboard-clients-list');
+            clientList.innerHTML = '';
+            const uniqueClients = {};
+            appointments.forEach(app => {
+                if (!uniqueClients[app.clientName]) {
+                    uniqueClients[app.clientName] = { name: app.clientName, phone: app.phone, email: app.email, count: 0 };
+                }
+                uniqueClients[app.clientName].count++;
+            });
+
+            const clientArray = Object.values(uniqueClients);
+            if (clientArray.length === 0) {
+                clientList.innerHTML = `<p class="text-stone-500 py-3 text-center text-sm">No hay clientes registrados.</p>`;
+            } else {
+                clientArray.forEach(c => {
+                    clientList.innerHTML += `
+                        <div class="py-3 flex justify-between items-center text-sm">
+                            <div>
+                                <span class="font-bold text-stone-900">${c.name}</span>
+                                <div class="text-xs text-stone-500">Tel: ${c.phone} | Email: ${c.email}</div>
+                            </div>
+                            <span class="bg-stone-200 text-stone-800 font-semibold px-3 py-1 rounded-full text-xs">${c.count} ${c.count > 1 ? 'visitas (Frecuente)' : 'visita'}</span>
+                        </div>
+                    `;
+                });
+            }
+
+            const servList = document.getElementById('dashboard-services-list');
+            servList.innerHTML = '';
+            services.forEach(s => {
+                servList.innerHTML += `
+                    <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 flex flex-col justify-between gap-3">
+                        <span class="text-sm font-bold text-stone-900">${s.name}</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-stone-500">$</span>
+                            <input type="number" id="dash-price-${s.id}" value="${s.price}" class="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 text-sm font-semibold text-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-900">
+                            <button onclick="updateServicePrice(${s.id})" class="bg-stone-900 hover:bg-stone-800 text-white text-xs px-4 py-2 rounded-xl transition font-medium">Guardar</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function updateServicePrice(id) {
+            const input = document.getElementById(`dash-price-${id}`);
+            const newPrice = Number(input.value);
+            const service = services.find(s => s.id === id);
+            if (service) {
+                service.price = newPrice;
+                renderServices();
+                showToast(`Precio actualizado para ${service.name}`);
+            }
+        }
+
+        function adminCancelAppointment(token) {
+            appointments = appointments.filter(a => a.token !== token);
+            localStorage.setItem('unika_appointments', JSON.stringify(appointments));
+            renderDashboardData();
+            showToast("Turno cancelado correctamente.");
+        }
+
+        function exportAppointments() {
+            let csv = "Cliente,Telefono,Email,Servicio,Fecha,Hora\n";
+            appointments.forEach(a => {
+                csv += `"${a.clientName}","${a.phone}","${a.email}","${a.service}","${a.date}","${a.time}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'citas_unika_cosmetologia.csv');
+            a.click();
+            showToast("Citas exportadas a CSV correctamente.");
+        }
+
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            const icon = document.getElementById('toast-icon');
+
+            msg.textContent = message;
+            icon.className = isError ? "text-red-400 fa-solid fa-circle-exclamation text-lg" : "text-green-400 fa-solid fa-circle-check text-lg";
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4500);
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+
+            const service = document.getElementById('service-select').value;
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+            const clientName = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const email = document.getElementById('client-email').value;
+
+            if (!time) {
+                showToast("Por favor selecciona un horario disponible.", true);
+                return;
+            }
+
+            const token = 'tok_' + Math.random().toString(36).substr(2, 9);
+            const newAppointment = { id: Date.now(), service, date, time, clientName, phone, email, token };
+            appointments.push(newAppointment);
+            localStorage.setItem('unika_appointments', JSON.stringify(appointments));
+
+            closeBookingModal();
+
+            const manageUrl = window.location.origin + window.location.pathname + `?manage=${token}`;
+
+            const message = encodeURIComponent(`¡Hola Karina! Nueva reserva web en Únika:%0A- *Tratamiento:* ${service}%0A- *Fecha:* ${date} a las ${time} hs%0A- *Paciente:* ${clientName}%0A- *Tel:* ${phone}%0A%0AEnlace de gestión/cancelación para el paciente: ${manageUrl}`);
+            const whatsappUrl = `https://wa.me/${KARINA_WHATSAPP}?text=${message}`;
+
+            showToast(`¡Turno confirmado! Redirigiendo a WhatsApp...`);
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1000);
+
+            document.getElementById('booking-form').reset();
+        }
+
+        function checkUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const manageToken = urlParams.get('manage');
+            if (manageToken) {
+                const app = appointments.find(a => a.token === manageToken);
+                if (app) {
+                    currentManagingId = manageToken;
+                    const detailsEl = document.getElementById('manage-booking-details');
+                    detailsEl.innerHTML = `
+                        <div><span class="text-stone-500">Paciente:</span> <strong class="text-stone-900">${app.clientName}</strong></div>
+                        <div><span class="text-stone-500">Tratamiento:</span> <strong class="text-brand-600">${app.service}</strong></div>
+                        <div><span class="text-stone-500">Fecha y Hora:</span> <strong class="text-stone-900">${app.date} a las ${app.time} hs</strong></div>
+                    `;
+                    const manageModal = document.getElementById('manage-booking-modal');
+                    manageModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        manageModal.classList.remove('opacity-0');
+                        manageModal.querySelector('div').classList.add('scale-100');
+                    }, 10);
+                }
+            }
+        }
+
+        function closeManageModal() {
+            const modal = document.getElementById('manage-booking-modal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }, 300);
+        }
+
+        function cancelClientAppointment() {
+            if (currentManagingId) {
+                appointments = appointments.filter(a => a.token !== currentManagingId);
+                localStorage.setItem('unika_appointments', JSON.stringify(appointments));
+                closeManageModal();
+                showToast("Tu reserva ha sido cancelada con éxito.");
+            }
+        }
+
+        window.onload = function() {
+            renderServices();
+            checkUrlParams();
+        }
+    </script>
+</body>
+</html>
+
