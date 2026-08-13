@@ -11,12 +11,12 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            bege: '#E8E1D5', // Bege Suave
-                            salvia: '#A3AB9E', // Verde Sálvia
-                            cinza: '#D8D4D0', // Cinza Aconchego
-                            areia: '#C8B9A6', // Areia Quente
-                            dark: '#524B45'
+                        unika: {
+                            bege: '#EFECE6',    /* Bege Suave */
+                            salvia: '#9EB0A5',  /* Verde Sálvia */
+                            cinza: '#D8D4D0',   /* Cinza Aconchego */
+                            areia: '#C8B9A6',   /* Areia Quente */
+                            dark: '#4A4238'
                         }
                     }
                 }
@@ -31,7 +31,7 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-[#FAF8F5] text-stone-800 antialiased selection:bg-[#E8E1D5] selection:text-stone-900">
+<body class="bg-[#FAF8F5] text-stone-800 antialiased selection:bg-[#EFECE6] selection:text-stone-900">
 
     <!-- Notificación Toast -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-stone-900 text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
@@ -40,10 +40,10 @@
     </div>
 
     <!-- Barra de Navegación -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#D8D4D0]/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-brand-salvia text-white flex items-center justify-center font-bold text-lg shadow-inner">
+                <div class="w-10 h-10 rounded-full bg-[#9EB0A5] text-white flex items-center justify-center font-bold text-lg shadow-inner">
                     Ú
                 </div>
                 <div>
@@ -59,10 +59,10 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <button onclick="openAdminLoginModal()" class="text-stone-600 hover:text-stone-900 px-3 py-2 rounded-xl text-xs font-semibold bg-[#E8E1D5]/40 transition flex items-center gap-1.5" title="Dashboard Karina">
-                    <i class="fa-solid fa-lock text-brand-salvia"></i> Acceso Karina
+                <button onclick="openAdminLoginModal()" class="text-stone-600 hover:text-stone-900 px-3 py-2 rounded-xl text-xs font-semibold bg-[#EFECE6] transition flex items-center gap-1.5" title="Dashboard Karina">
+                    <i class="fa-solid fa-lock text-[#9EB0A5]"></i> Acceso Karina
                 </button>
-                <button onclick="openBookingModal()" class="bg-brand-salvia hover:bg-[#8D9688] text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-lg transition transform active:scale-95 flex items-center gap-2">
+                <button onclick="openBookingModal()" class="bg-[#9EB0A5] hover:bg-[#85988C] text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-lg transition transform active:scale-95 flex items-center gap-2">
                     <i class="fa-regular fa-calendar-days"></i>
                     <span>Agendar Cita</span>
                 </button>
@@ -71,21 +71,21 @@
     </header>
 
     <!-- Sección Hero -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-[#E8E1D5]/30 to-[#FAF8F5] py-20 lg:py-28">
+    <section class="relative overflow-hidden bg-gradient-to-b from-[#EFECE6]/50 to-[#FAF8F5] py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 bg-[#A3AB9E]/20 text-stone-800 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-sparkles text-brand-salvia"></i> Cuidado avanzado para tu piel
+                    <div class="inline-flex items-center gap-2 bg-[#9EB0A5]/20 text-stone-800 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-sparkles text-[#9EB0A5]"></i> Cuidado avanzado para tu piel
                     </div>
                     <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-tight">
-                        Realza tu belleza única con <span class="text-brand-salvia">respaldo médico</span>
+                        Realza tu belleza única con <span class="text-[#9EB0A5]">respaldo médico</span>
                     </h2>
                     <p class="text-lg text-stone-600 max-w-xl mx-auto lg:mx-0">
-                        Agenda tu turno online. Se requiere una seña de $600 para validar tu espacio (cancelaciones con más de 24 hs de anticipación).
+                        Agenda tu turno online (duración aprox. 1h 30m por sesión). Se requiere seña de $600 para validar tu espacio (cancelaciones con más de 24 hs de anticipación).
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-brand-salvia hover:bg-[#8D9688] text-white px-8 py-4 rounded-xl font-semibold shadow-xl transition transform active:scale-95 text-center">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-[#9EB0A5] hover:bg-[#85988C] text-white px-8 py-4 rounded-xl font-semibold shadow-xl transition transform active:scale-95 text-center">
                             Reservar Turno Ahora
                         </button>
                         <a href="#servicios" class="w-full sm:w-auto bg-white border border-[#C8B9A6] hover:bg-stone-50 text-stone-800 px-8 py-4 rounded-xl font-semibold transition text-center">
@@ -97,7 +97,7 @@
                     <div class="w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-stone-200 relative border-4 border-white">
                         <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" alt="Cosmetología Profesional" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                            <span class="text-xs uppercase tracking-widest text-[#E8E1D5] font-semibold">Cosmetóloga Médica</span>
+                            <span class="text-xs uppercase tracking-widest text-[#EFECE6] font-semibold">Cosmetóloga Médica</span>
                             <span class="text-xl font-bold">Karina - Únika</span>
                         </div>
                     </div>
@@ -107,10 +107,10 @@
     </section>
 
     <!-- Catálogo de Servicios -->
-    <section id="servicios" class="py-20 bg-white border-y border-stone-200">
+    <section id="servicios" class="py-20 bg-white border-y border-[#D8D4D0]/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-salvia font-semibold text-sm uppercase tracking-wider">Tratamientos Exclusivos</span>
+                <span class="text-[#9EB0A5] font-semibold text-sm uppercase tracking-wider">Tratamientos Exclusivos</span>
                 <h3 class="text-3xl font-bold text-stone-900 mt-2">Nuestros Servicios y Precios</h3>
                 <p class="text-stone-600 mt-2">Selecciona el tratamiento ideal para tu piel con disponibilidad en tiempo real.</p>
             </div>
@@ -124,7 +124,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-8 h-8 rounded-full bg-brand-salvia text-white flex items-center justify-center font-bold text-sm">
+                    <div class="w-8 h-8 rounded-full bg-[#9EB0A5] text-white flex items-center justify-center font-bold text-sm">
                         Ú
                     </div>
                     <span class="font-bold text-lg text-white">Únika Cosmetología</span>
@@ -138,9 +138,9 @@
             </div>
             <div>
                 <h4 class="font-semibold text-white mb-4">Contacto</h4>
-                <p class="text-sm text-stone-400 mb-2"><i class="fa-solid fa-location-dot mr-2 text-brand-salvia"></i> Consultorio Estético Profesional</p>
-                <p class="text-sm text-stone-400 mb-2"><i class="fa-brands fa-whatsapp mr-2 text-brand-salvia"></i> +598 99 689 906</p>
-                <p class="text-sm text-stone-400"><i class="fa-solid fa-envelope mr-2 text-brand-salvia"></i> Karhel@hotmail.com</p>
+                <p class="text-sm text-stone-400 mb-2"><i class="fa-solid fa-location-dot mr-2 text-[#9EB0A5]"></i> Consultorio Estético Profesional</p>
+                <p class="text-sm text-stone-400 mb-2"><i class="fa-brands fa-whatsapp mr-2 text-[#9EB0A5]"></i> +598 99 689 906</p>
+                <p class="text-sm text-stone-400"><i class="fa-solid fa-envelope mr-2 text-[#9EB0A5]"></i> Karhel@hotmail.com</p>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 text-center text-xs text-stone-500">
@@ -156,14 +156,14 @@
             </button>
 
             <div class="mb-6">
-                <span class="text-brand-salvia font-semibold text-xs uppercase tracking-wider">Agenda Online</span>
+                <span class="text-[#9EB0A5] font-semibold text-xs uppercase tracking-wider">Agenda Online (Turnos de 1h 30m)</span>
                 <h3 class="text-2xl font-bold text-stone-900 mt-1">Reservar Turno con Karina</h3>
                 <p class="text-sm text-stone-500">Completa tus datos para apartar tu horario.</p>
             </div>
 
             <!-- Aviso Importante de Seña y Cancelación -->
-            <div class="bg-[#E8E1D5]/30 border-l-4 border-brand-salvia p-4 rounded-2xl mb-6 text-xs text-stone-700 space-y-1">
-                <p class="font-bold text-stone-900"><i class="fa-solid fa-circle-info text-brand-salvia mr-1"></i> Información importante:</p>
+            <div class="bg-[#EFECE6] border-l-4 border-[#9EB0A5] p-4 rounded-2xl mb-6 text-xs text-stone-700 space-y-1">
+                <p class="font-bold text-stone-900"><i class="fa-solid fa-circle-info text-[#9EB0A5] mr-1"></i> Información importante:</p>
                 <p>• Es necesario depositar una <strong>seña de $600</strong> a la cuenta de Karina para confirmar la reserva.</p>
                 <p>• Las cancelaciones deben realizarse con <strong>más de 24 horas de anticipación</strong>; de lo contrario, la seña se pierde.</p>
             </div>
@@ -171,33 +171,33 @@
             <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Tratamiento</label>
-                    <select id="service-select" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia"></select>
+                    <select id="service-select" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]"></select>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Fecha</label>
-                        <input type="date" id="booking-date" onchange="updateAvailableSlots()" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
+                        <input type="date" id="booking-date" onchange="updateAvailableSlots()" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Horarios Disponibles</label>
-                        <select id="booking-time" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia"></select>
+                        <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Horarios Disponibles (1h 30m)</label>
+                        <select id="booking-time" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]"></select>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Nombre y Apellido</label>
-                    <input type="text" id="client-name" required placeholder="Ej. Camila Silva" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
+                    <input type="text" id="client-name" required placeholder="Ej. Camila Silva" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]">
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Tu Teléfono / WhatsApp</label>
-                    <input type="tel" id="client-phone" required placeholder="Ej. 099 876 543" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
+                    <input type="tel" id="client-phone" required placeholder="Ej. 099 876 543" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]">
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Correo Electrónico (para respaldo automático)</label>
-                    <input type="email" id="client-email" required placeholder="tuemail@gmail.com" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-salvia">
+                    <input type="email" id="client-email" required placeholder="tuemail@hotmail.com" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]">
                 </div>
 
                 <div class="pt-2">
@@ -212,7 +212,7 @@
     <!-- Modal de Éxito: Opciones WhatsApp o Solo Email -->
     <div id="success-whatsapp-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 text-center space-y-4">
-            <div class="w-16 h-16 bg-[#A3AB9E]/20 text-brand-salvia rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+            <div class="w-16 h-16 bg-[#EFECE6] text-[#9EB0A5] rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
                 <i class="fa-solid fa-check"></i>
             </div>
             <h3 class="text-2xl font-bold text-stone-900">¡Turno Registrado con Éxito!</h3>
@@ -224,7 +224,7 @@
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     <span>Enviar por WhatsApp a Kari</span>
                 </a>
-                <button onclick="confirmByEmailOnly()" class="w-full bg-[#E8E1D5] hover:bg-[#D8CEBE] text-stone-800 font-semibold py-3 rounded-xl transition text-xs flex items-center justify-center gap-2">
+                <button onclick="confirmByEmailOnly()" class="w-full bg-[#EFECE6] hover:bg-[#D8D4D0] text-stone-800 font-semibold py-3 rounded-xl transition text-xs flex items-center justify-center gap-2">
                     <i class="fa-solid fa-envelope"></i>
                     <span>No tengo WhatsApp (Confirmar solo por Correo)</span>
                 </button>
@@ -239,18 +239,18 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-brand-salvia text-white rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">Ú</div>
+                <div class="w-12 h-12 bg-[#9EB0A5] text-white rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">Ú</div>
                 <h3 class="text-xl font-bold text-stone-900">Acceso Exclusivo</h3>
                 <p class="text-xs text-stone-500 mt-1">Ingresa tu PIN de seguridad para abrir tu panel</p>
             </div>
             <form onsubmit="handleAdminLogin(event)" class="space-y-4">
-                <input type="password" id="admin-pin" required placeholder="PIN (ej. 1234)" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-center text-lg tracking-widest focus:outline-none focus:ring-2 focus:ring-brand-salvia">
+                <input type="password" id="admin-pin" required placeholder="PIN (ej. 1234)" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-center text-lg tracking-widest focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]">
                 <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3 rounded-xl transition">Ingresar al Dashboard</button>
             </form>
         </div>
     </div>
 
-    <!-- Dashboard Completo de Karina -->
+    <!-- Dashboard Completo de Karina con Calendario de Disponibilidad -->
     <div id="admin-dashboard-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-5xl w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[92vh] overflow-y-auto">
             <button onclick="closeAdminDashboard()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center transition">
@@ -259,9 +259,9 @@
 
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b border-stone-200 pb-6">
                 <div>
-                    <span class="text-brand-salvia font-semibold text-xs uppercase tracking-wider">Panel Únika Admin</span>
+                    <span class="text-[#9EB0A5] font-semibold text-xs uppercase tracking-wider">Panel Únika Admin</span>
                     <h3 class="text-2xl font-bold text-stone-900 mt-1">¡Hola, Karina! 👋</h3>
-                    <p class="text-sm text-stone-500">Respaldo activo a <strong>Karhel@hotmail.com</strong></p>
+                    <p class="text-sm text-stone-500">Gestión de turnos de 1h 30m y control de agenda.</p>
                 </div>
                 <div>
                     <button onclick="exportAppointments()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 px-4 py-2 rounded-xl text-xs font-semibold transition">
@@ -287,10 +287,11 @@
             </div>
 
             <!-- Pestañas del Dashboard -->
-            <div class="flex gap-4 border-b border-stone-200 mb-6 text-sm font-semibold">
-                <button onclick="switchDashboardTab('agenda')" id="tab-btn-agenda" class="pb-3 border-b-2 border-stone-900 text-stone-900 transition">Agenda de Citas</button>
-                <button onclick="switchDashboardTab('clientes')" id="tab-btn-clientes" class="pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition">Clientes Frecuentes</button>
-                <button onclick="switchDashboardTab('precios')" id="tab-btn-precios" class="pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition">Gestión de Precios</button>
+            <div class="flex gap-4 border-b border-stone-200 mb-6 text-sm font-semibold overflow-x-auto">
+                <button onclick="switchDashboardTab('agenda')" id="tab-btn-agenda" class="pb-3 border-b-2 border-stone-900 text-stone-900 transition whitespace-nowrap">Agenda de Citas</button>
+                <button onclick="switchDashboardTab('disponibilidad')" id="tab-btn-disponibilidad" class="pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition whitespace-nowrap">Mi Disponibilidad (Mes/Ad hoc)</button>
+                <button onclick="switchDashboardTab('clientes')" id="tab-btn-clientes" class="pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition whitespace-nowrap">Clientes Frecuentes</button>
+                <button onclick="switchDashboardTab('precios')" id="tab-btn-precios" class="pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition whitespace-nowrap">Gestión de Precios</button>
             </div>
 
             <!-- Pestaña 1: Agenda -->
@@ -298,26 +299,51 @@
                 <div id="dashboard-appointments-list" class="bg-stone-50 rounded-2xl p-4 border border-stone-200 divide-y divide-stone-200 max-h-72 overflow-y-auto"></div>
             </div>
 
-            <!-- Pestaña 2: Clientes Frecuentes -->
+            <!-- Pestaña 2: Mi Disponibilidad (Control de Días/Horas Ad hoc) -->
+            <div id="tab-content-disponibilidad" class="space-y-4 hidden">
+                <div class="bg-[#EFECE6]/40 p-5 rounded-2xl border border-[#D8D4D0] space-y-4">
+                    <h4 class="font-bold text-stone-900 text-sm"><i class="fa-solid fa-calendar-days text-[#9EB0A5] mr-2"></i> Bloquear / Habilitar Días u Horarios Ad Hoc</h4>
+                    <p class="text-xs text-stone-600">Selecciona una fecha y marca los horarios que deseas bloquear (por ejemplo, si te tomas descanso o necesitas modificar la disponibilidad).</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-700 uppercase mb-1">Seleccionar Fecha</label>
+                            <input type="date" id="admin-override-date" onchange="renderOverrideSlots()" class="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]">
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="blockEntireDay()" class="w-full bg-stone-800 hover:bg-stone-900 text-white font-medium py-2.5 rounded-xl text-xs transition">Bloquear Día Completo</button>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <label class="block text-xs font-semibold text-stone-700 uppercase mb-2">Bloques de 1h 30m para esta fecha (Haz clic para habilitar/bloquear):</label>
+                        <div id="admin-slots-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <!-- Generado dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pestaña 3: Clientes Frecuentes -->
             <div id="tab-content-clientes" class="space-y-4 hidden">
                 <div id="dashboard-clients-list" class="bg-stone-50 rounded-2xl p-4 border border-stone-200 divide-y divide-stone-200 max-h-72 overflow-y-auto"></div>
             </div>
 
-            <!-- Pestaña 3: Precios -->
+            <!-- Pestaña 4: Precios -->
             <div id="tab-content-precios" class="space-y-4 hidden">
                 <div id="dashboard-services-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Gestión/Cancelación para Pacientes (Código Corto) -->
+    <!-- Modal de Gestión/Cancelación para Pacientes -->
     <div id="manage-booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300">
             <button onclick="closeManageModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="text-center mb-6">
-                <span class="text-brand-salvia font-semibold text-xs uppercase tracking-wider">Gestión de Turno</span>
+                <span class="text-[#9EB0A5] font-semibold text-xs uppercase tracking-wider">Gestión de Turno</span>
                 <h3 class="text-2xl font-bold text-stone-900 mt-1">Detalles de tu Cita Únika</h3>
             </div>
             <div id="manage-booking-details" class="bg-stone-50 p-5 rounded-2xl border border-stone-200 space-y-3 mb-6 text-sm"></div>
@@ -337,27 +363,39 @@
         </div>
     </div>
 
-    <!-- Script de Funcionamiento -->
+    <!-- Script de Funcionamiento con Turnos de 1h 30m y Disponibilidad Ad Hoc -->
     <script>
         const KARINA_WHATSAPP = "59899689906";
         const KARINA_EMAIL = "Karhel@hotmail.com";
         const ADMIN_PIN = "1234";
 
         let services = [
-            { id: 1, name: "Limpieza Facial Profunda con Dermopurificación", duration: "60 min", price: 1800, description: "Exfoliación, extracción de impurezas y alta frecuencia.", image: "https://images.unsplash.com/photo-1512290900722-9a70f8a85f39?auto=format&fit=crop&w=600&q=80" },
-            { id: 2, name: "Peeling Químico Médico", duration: "45 min", price: 2500, description: "Renovación celular avanzada para atenuar manchas y marcas.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" },
-            { id: 3, name: "Microneedling (Dermapen con Vitamina C)", duration: "75 min", price: 3200, description: "Inducción de colágeno y elastina para firmeza y luminosidad.", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" },
-            { id: 4, name: "Hidratación Profunda con Ácido Hialurónico", duration: "50 min", price: 2100, description: "Infusión de principios activos para devolver vitalidad.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" },
-            { id: 5, name: "Tratamiento Anti-Acné Especializado", duration: "60 min", price: 2300, description: "Control de sebo, desinflamación y prevención de brotes.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" },
-            { id: 6, name: "Radiofrecuencia Reafirmante Facial", duration: "60 min", price: 2800, description: "Efecto lifting sin cirugía que estimula la tensión tisular.", image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80" }
+            { id: 1, name: "Limpieza Facial Profunda con Dermopurificación", duration: "1h 30m", price: 1800, description: "Exfoliación, extracción de impurezas y alta frecuencia.", image: "https://images.unsplash.com/photo-1512290900722-9a70f8a85f39?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Peeling Químico Médico", duration: "1h 30m", price: 2500, description: "Renovación celular avanzada para atenuar manchas y marcas.", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Microneedling (Dermapen con Vitamina C)", duration: "1h 30m", price: 3200, description: "Inducción de colágeno y elastina para firmeza y luminosidad.", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, name: "Hidratación Profunda con Ácido Hialurónico", duration: "1h 30m", price: 2100, description: "Infusión de principios activos para devolver vitalidad.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" },
+            { id: 5, name: "Tratamiento Anti-Acné Especializado", duration: "1h 30m", price: 2300, description: "Control de sebo, desinflamación y prevención de brotes.", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" },
+            { id: 6, name: "Radiofrecuencia Reafirmante Facial", duration: "1h 30m", price: 2800, description: "Efecto lifting sin cirugía que estimula la tensión tisular.", image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80" }
         ];
 
         let appointments = JSON.parse(localStorage.getItem('unika_appointments')) || [
-            { id: 101, service: "Limpieza Facial Profunda con Dermopurificación", date: "2026-06-15", time: "10:30", clientName: "Lucía Fernández", phone: "099111222", email: "lucia@email.com", code: "CITA-101" }
+            { id: 101, service: "Limpieza Facial Profunda con Dermopurificación", date: "2026-06-15", time: "09:00 - 10:30", clientName: "Lucía Fernández", phone: "099111222", email: "lucia@email.com", code: "CITA-101" }
         ];
 
+        // Bloqueos Ad Hoc hechos por Karina (ej: {"2026-06-20": ["10:30 - 12:00"], "2026-06-21": ["FULL"]})
+        let customBlockedSlots = JSON.parse(localStorage.getItem('unika_blocked_slots')) || {};
+
         let currentManagingCode = null;
-        const allPossibleSlots = ["09:00", "10:30", "12:00", "14:00", "15:30", "17:00"];
+
+        // Bloques estrictos de 1 hora 30 minutos
+        const standardSlots = [
+            "09:00 - 10:30",
+            "10:30 - 12:00",
+            "12:00 - 13:30",
+            "14:00 - 15:30",
+            "15:30 - 17:00",
+            "17:00 - 18:30"
+        ];
 
         function renderServices() {
             const grid = document.getElementById('services-grid');
@@ -375,13 +413,13 @@
                             <div>
                                 <div class="flex justify-between items-center mb-2">
                                     <h4 class="font-bold text-lg text-stone-900">${service.name}</h4>
-                                    <span class="text-brand-salvia font-bold">$${service.price}</span>
+                                    <span class="text-[#9EB0A5] font-bold">$${service.price}</span>
                                 </div>
                                 <p class="text-sm text-stone-600 mb-4">${service.description}</p>
                             </div>
                             <div class="flex items-center justify-between pt-4 border-t border-stone-200">
                                 <span class="text-xs text-stone-500 font-medium"><i class="fa-regular fa-clock mr-1"></i> ${service.duration}</span>
-                                <button onclick="openBookingWithService(${service.id})" class="bg-[#E8E1D5] hover:bg-brand-salvia hover:text-white text-stone-800 font-semibold px-4 py-2 rounded-xl text-xs transition">
+                                <button onclick="openBookingWithService(${service.id})" class="bg-[#EFECE6] hover:bg-[#9EB0A5] hover:text-white text-stone-800 font-semibold px-4 py-2 rounded-xl text-xs transition">
                                     Reservar Cita
                                 </button>
                             </div>
@@ -397,11 +435,24 @@
             const timeSelect = document.getElementById('booking-time');
             timeSelect.innerHTML = '';
 
+            if (!dateInput) return;
+
+            // Verificar si el día entero está bloqueado por Karina
+            if (customBlockedSlots[dateInput] && customBlockedSlots[dateInput].includes("FULL")) {
+                timeSelect.innerHTML = `<option value="" disabled selected>No hay disponibilidad este día (Día bloqueado)</option>`;
+                return;
+            }
+
+            // Horarios ya reservados por clientes
             const bookedTimesForDate = appointments
                 .filter(app => app.date === dateInput)
                 .map(app => app.time);
 
-            const availableSlots = allPossibleSlots.filter(slot => !bookedTimesForDate.includes(slot));
+            // Horarios bloqueados manualmente por Karina ad hoc
+            const manualBlocked = customBlockedSlots[dateInput] || [];
+
+            // Filtrar disponibles
+            const availableSlots = standardSlots.filter(slot => !bookedTimesForDate.includes(slot) && !manualBlocked.includes(slot));
 
             if (availableSlots.length === 0) {
                 timeSelect.innerHTML = `<option value="" disabled selected>No hay horarios disponibles para esta fecha</option>`;
@@ -473,6 +524,10 @@
 
         function openAdminDashboard() {
             renderDashboardData();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('admin-override-date').value = today;
+            renderOverrideSlots();
+            
             const modal = document.getElementById('admin-dashboard-modal');
             modal.classList.remove('hidden');
             setTimeout(() => {
@@ -489,12 +544,12 @@
         }
 
         function switchDashboardTab(tab) {
-            ['agenda', 'clientes', 'precios'].forEach(t => {
+            ['agenda', 'disponibilidad', 'clientes', 'precios'].forEach(t => {
                 document.getElementById(`tab-content-${t}`).classList.add('hidden');
-                document.getElementById(`tab-btn-${t}`).className = "pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition";
+                document.getElementById(`tab-btn-${t}`).className = "pb-3 border-b-2 border-transparent text-stone-500 hover:text-stone-800 transition whitespace-nowrap";
             });
             document.getElementById(`tab-content-${tab}`).classList.remove('hidden');
-            document.getElementById(`tab-btn-${tab}`).className = "pb-3 border-b-2 border-stone-900 text-stone-900 transition";
+            document.getElementById(`tab-btn-${tab}`).className = "pb-3 border-b-2 border-stone-900 text-stone-900 transition whitespace-nowrap";
         }
 
         function renderDashboardData() {
@@ -531,11 +586,11 @@
                         <div class="py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                             <div>
                                 <span class="font-bold text-stone-900">${app.clientName}</span> (${app.phone})
-                                <div class="text-xs text-stone-500"><span class="font-semibold text-brand-salvia">${app.service}</span> — Fecha: ${app.date} a las ${app.time} hs</div>
-                                <div class="text-[11px] text-stone-400">Código: <span class="font-mono bg-stone-100 px-1.5 py-0.5 rounded text-stone-700">${app.code}</span> | Email: ${app.email}</div>
+                                <div class="text-xs text-stone-500"><span class="font-semibold text-[#9EB0A5]">${app.service}</span> — Fecha: ${app.date} (${app.time} hs)</div>
+                                <div class="text-[11px] text-stone-400">Código: <span class="font-mono bg-stone-100 px-1.5 py-0.5 rounded text-stone-700">${app.code}</span></div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Respaldado</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Confirmado</span>
                                 <button onclick="adminCancelAppointment('${app.code}')" class="text-red-500 hover:text-red-700 text-xs p-1" title="Cancelar Turno"><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </div>
@@ -578,12 +633,72 @@
                         <span class="text-sm font-bold text-stone-900">${s.name}</span>
                         <div class="flex items-center gap-2">
                             <span class="text-xs text-stone-500">$</span>
-                            <input type="number" id="dash-price-${s.id}" value="${s.price}" class="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 text-sm font-semibold text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand-salvia">
+                            <input type="number" id="dash-price-${s.id}" value="${s.price}" class="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 text-sm font-semibold text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#9EB0A5]">
                             <button onclick="updateServicePrice(${s.id})" class="bg-stone-900 hover:bg-stone-800 text-white text-xs px-4 py-2 rounded-xl transition font-medium">Guardar</button>
                         </div>
                     </div>
                 `;
             });
+        }
+
+        // Funciones del Calendario Ad Hoc para Karina
+        function renderOverrideSlots() {
+            const dateVal = document.getElementById('admin-override-date').value;
+            const grid = document.getElementById('admin-slots-grid');
+            grid.innerHTML = '';
+
+            if (!dateVal) return;
+
+            const blocked = customBlockedSlots[dateVal] || [];
+            const isFullDay = blocked.includes("FULL");
+            const bookedTimes = appointments.filter(a => a.date === dateVal).map(a => a.time);
+
+            standardSlots.forEach(slot => {
+                const isBooked = bookedTimes.includes(slot);
+                const isBlocked = isFullDay || blocked.includes(slot);
+
+                let badgeColor = "bg-emerald-50 text-emerald-800 border-emerald-200";
+                let statusText = "Disponible";
+
+                if (isBooked) {
+                    badgeColor = "bg-blue-50 text-blue-800 border-blue-200 opacity-60 cursor-not-allowed";
+                    statusText = "Reservado (Paciente)";
+                } else if (isBlocked) {
+                    badgeColor = "bg-red-50 text-red-800 border-red-200";
+                    statusText = "Bloqueado (Libre)";
+                }
+
+                grid.innerHTML += `
+                    <div onclick="${isBooked ? '' : `toggleSlotBlock('${dateVal}', '${slot}')`}" class="p-3 rounded-xl border text-xs font-medium flex flex-col justify-between cursor-pointer transition ${badgeColor}">
+                        <span class="font-bold">${slot}</span>
+                        <span class="text-[10px] mt-1">${statusText}</span>
+                    </div>
+                `;
+            });
+        }
+
+        function toggleSlotBlock(date, slot) {
+            if (!customBlockedSlots[date]) {
+                customBlockedSlots[date] = [];
+            }
+            const idx = customBlockedSlots[date].indexOf(slot);
+            if (idx > -1) {
+                customBlockedSlots[date].splice(idx, 1);
+            } else {
+                customBlockedSlots[date].push(slot);
+            }
+            localStorage.setItem('unika_blocked_slots', JSON.stringify(customBlockedSlots));
+            renderOverrideSlots();
+            showToast("Disponibilidad actualizada para el horario.");
+        }
+
+        function blockEntireDay() {
+            const dateVal = document.getElementById('admin-override-date').value;
+            if (!dateVal) return;
+            customBlockedSlots[dateVal] = ["FULL"];
+            localStorage.setItem('unika_blocked_slots', JSON.stringify(customBlockedSlots));
+            renderOverrideSlots();
+            showToast("Día completo bloqueado correctamente.");
         }
 
         function updateServicePrice(id) {
@@ -654,12 +769,11 @@
 
             closeBookingModal();
 
-            // Simulación de envío automático de respaldo al hotmail de Karina
             console.log(`[Respaldo de Email enviado a ${KARINA_EMAIL}]: Nueva reserva de ${clientName} (${shortCode}) para ${service} el ${date} a las ${time}`);
 
             const cancelUrl = window.location.origin + window.location.pathname + `?cancel=${shortCode}`;
 
-            const message = encodeURIComponent(`¡Kari, te dejo los datos de mi reserva!\n\n- *Tratamiento:* ${service}\n- *Fecha:* ${date} a las ${time} hs\n- *Paciente:* ${clientName}\n- *Código:* ${shortCode}\n\nCancelar/Gestionar: ${cancelUrl}`);
+            const message = encodeURIComponent(`¡Kari, te dejo los datos de mi reserva!\n\n- *Tratamiento:* ${service}\n- *Fecha:* ${date} (${time} hs)\n- *Paciente:* ${clientName}\n- *Código:* ${shortCode}\n\nCancelar/Gestionar: ${cancelUrl}`);
             const whatsappUrl = `https://wa.me/${KARINA_WHATSAPP}?text=${message}`;
 
             document.getElementById('whatsapp-direct-link').href = whatsappUrl;
@@ -699,8 +813,8 @@
                     detailsEl.innerHTML = `
                         <div><span class="text-stone-500">Código:</span> <strong class="text-stone-900 font-mono">${app.code}</strong></div>
                         <div><span class="text-stone-500">Paciente:</span> <strong class="text-stone-900">${app.clientName}</strong></div>
-                        <div><span class="text-stone-500">Tratamiento:</span> <strong class="text-brand-salvia">${app.service}</strong></div>
-                        <div><span class="text-stone-500">Fecha y Hora:</span> <strong class="text-stone-900">${app.date} a las ${app.time} hs</strong></div>
+                        <div><span class="text-stone-500">Tratamiento:</span> <strong class="text-[#9EB0A5]">${app.service}</strong></div>
+                        <div><span class="text-stone-500">Fecha y Hora:</span> <strong class="text-stone-900">${app.date} (${app.time} hs)</strong></div>
                     `;
                     const manageModal = document.getElementById('manage-booking-modal');
                     manageModal.classList.remove('hidden');
